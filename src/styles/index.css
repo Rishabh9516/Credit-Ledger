@@ -1,0 +1,59 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+@layer base {
+  body {
+    background-color: #f8fafc;
+    background-image:
+      radial-gradient(at 0% 0%, hsla(210, 100%, 98%, 1) 0, transparent 50%),
+      radial-gradient(at 50% 0%, hsla(225, 100%, 98%, 1) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(339, 49%, 98%, 1) 0, transparent 50%);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+
+  .glass-dark {
+    @apply bg-slate-900/70 backdrop-blur-md border border-slate-800/50 shadow-2xl;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .animate-slide-right {
+    animation: slideRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+  @keyframes slideRight {
+    from { transform: translateX(30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  .animate-sheet-in {
+    animation: sheetIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes sheetIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+
+  .animate-overlay-in {
+    animation: overlayIn 0.4s ease-out forwards;
+  }
+  @keyframes overlayIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
